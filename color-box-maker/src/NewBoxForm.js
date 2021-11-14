@@ -33,3 +33,4 @@ const NewBoxForm = ({addBox}) => {
 };
 
 export default NewBoxForm;
+export{ DEFAULT_STATE } // exported for testing purposes
