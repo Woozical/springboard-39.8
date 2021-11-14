@@ -1,12 +1,14 @@
 import {useState} from "react";
 
-const NewBoxForm = ({addBox}) => {
+const DEFAULT_STATE = {width: 300, height: 300, color:"#000000"};
 
-  const [formData, setFormData] = useState({width: 300, height: 300, color:"#000000"});
+const NewBoxForm = ({addBox}) => {
+  const [formData, setFormData] = useState(DEFAULT_STATE);
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
     addBox(formData);
+    setFormData(DEFAULT_STATE);
   }
 
   const handleChange = (evt) => {
