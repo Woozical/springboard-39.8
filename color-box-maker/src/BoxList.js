@@ -1,10 +1,8 @@
 import { useState } from 'react';
 import Box from './Box';
+import NewBoxForm from './NewBoxForm';
 
 const DEFAULT_STATE = [
-  {id: 1, width: 300, height: 300, color: "green"},
-  {id: 2, width: 100, height: 500, color: "red"}, 
-  {id: 3, width: 500, height: 100, color: "blue"}
 ];
 
 const BoxList = () => {
@@ -19,6 +17,7 @@ const BoxList = () => {
 
   return (
     <div>
+      <NewBoxForm addBox={addBox} />
       {boxes.map(b => <Box key={b.id} width={b.width} height={b.height} color={b.color} />)}
     </div>
   )
