@@ -3,7 +3,6 @@ import {useState} from "react";
 const DEFAULT_STATE = {task: ""};
 
 const NewTodoForm = (props) => {
-
   const [formData, setFormData] = useState(DEFAULT_STATE);
 
   const handleChange = (evt) => {
@@ -14,14 +13,16 @@ const NewTodoForm = (props) => {
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    props.addItem(formData);
-    setFormData(DEFAULT_STATE);
+    if (formData.task){
+      props.addItem(formData);
+      setFormData(DEFAULT_STATE);
+    }
   }
 
   return <form onSubmit={handleSubmit}>
     <label htmlFor="td-in-task">New Task: </label>
     <input id="td-in-task" name="task" onChange={handleChange} type="text" value={formData.task} />
-    
+
     <button>Add</button>
   </form>
 }
