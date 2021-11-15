@@ -1,5 +1,8 @@
 const Todo = (props) => {
-  return <li>{props.task}</li>
+  const handleClick = () => {
+    props.deleteItem(props.id);
+  }
+  return <li><button onClick={handleClick}>X</button>{props.task}</li>
 }
 
 export default Todo;
